@@ -6,8 +6,6 @@ const {
     getAllCategories
 } = require('../controllers/categoryController');
 
-
-const { protect } = require('../middleware/authMiddleware');
 const { protectAdmin } = require('../middleware/adminAuthMiddleware');
 
 router.route('/').post(protectAdmin, setCategory).get(getAllCategories)

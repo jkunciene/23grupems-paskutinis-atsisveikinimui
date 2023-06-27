@@ -5,9 +5,12 @@ const { protect } = require('../middleware/authMiddleware');
 
 const {
     getAllAds,
-    setAd
+    setAd,
+    getUserAds
 } = require('../controllers/adController');
 
-router.route('/').get(getAllAds).post(protect, setAd)
+router.route('/').get(getAllAds).post(protect, setAd);
+router.get('/users', protect, getUserAds);
+
 
 module.exports = router
