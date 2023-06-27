@@ -25,8 +25,18 @@ const setCategory = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('Invalid category data')
   }
+});
+
+// @desc Get All categories
+// @route GET /api/category
+// @access PUBLIC
+
+const getAllCategories = asyncHandler( async (req, res)=>{
+  const categories = await Category.find();
+  res.status(200).send(categories);
 })
 
 module.exports = {
     setCategory,
+    getAllCategories
 }
