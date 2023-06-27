@@ -10,7 +10,7 @@ const {
 const { protect } = require('../middleware/authMiddleware');
 const { protectAdmin } = require('../middleware/adminAuthMiddleware');
 
-router.post('/', protectAdmin, setCategory).get('/', getAllCategories)
+router.route('/').post(protectAdmin, setCategory).get(getAllCategories)
 
 
 module.exports = router

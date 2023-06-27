@@ -8,6 +8,6 @@ const {
     setAd
 } = require('../controllers/adController');
 
-router.get('/', getAllAds).post('/', protect, setAd)
+router.route('/').get(getAllAds).post(protect, setAd)
 
 module.exports = router

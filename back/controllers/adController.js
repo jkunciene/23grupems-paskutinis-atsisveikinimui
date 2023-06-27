@@ -38,10 +38,18 @@ const setAd = asyncHandler(async (req, res) => {
     }
   })
 
+// @desc Get user ads
+// @route GET /api/ad
+// @access PRIVAT
 
-//get user's ads
+const getAd = asyncHandler(async (req, res) => {
+    const ads = await Ad.find({user: req.user.id});
+    res.status(200).send(ads);
+})
+
 
 module.exports = {
     getAllAds,
-    setAd
+    setAd,
+    getAd
 }
