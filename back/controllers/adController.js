@@ -5,12 +5,43 @@ const asyncHandler = require('express-async-handler');
 // @route GET /api/ad
 // @access PUBLIC
 
-const getAllAds = asyncHandler( async (req, res)=>{
+const getAllAds = asyncHandler(async (req, res) => {
     const ads = await Ad.find();
     res.status(200).send(ads);
 })
 
+
+// @desc Set new Ad
+// @route POST /api/ad
+// @access PRIVAT (simple user)
+
+const setAd = asyncHandler(async (req, res) => {
+    const { name, description, image, price, category } = req.body
+    if (!name || !description || !image || !price || !category) {
+      res.status(400)
+      throw new Error('Please add all fields')
+    }
+
+    const ad = await Ad.create({
+      name,
+      description,
+      image,
+      price,
+      category,
+      user: req.user.id
+    })
+    if (ad) {
+      res.status(201).send(ad)
+    } else {
+      res.status(400)
+      throw new Error('Invalid data')
+    }
+  })
+
+
+//get user's ads
+
 module.exports = {
     getAllAds,
-    
+    setAd
 }
