@@ -17,6 +17,7 @@ app.use(express.json());
 
 app.use('/api/user', require('./routes/userRoutes'));
 app.use('/api/category', require('./routes/categoryRoutes'));
+app.use('/api/ad', require('./routes/adRoutes'));
 
 app.use(errorHandler);
 
