@@ -39,7 +39,7 @@ const setAd = asyncHandler(async (req, res) => {
   })
 
 // @desc Get user ads
-// @route GET /api/ad
+// @route GET /api/ad/users
 // @access PRIVAT
 
 const getUserAds = asyncHandler(async (req, res) => {
