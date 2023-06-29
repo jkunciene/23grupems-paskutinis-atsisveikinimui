@@ -8,16 +8,29 @@ const Categories = () => {
   //gautus duomenis is API, isideti i state
 const categoriesData = ()=>{
   categoryService.getAllCategories()
-  .then(res => console.log(res))
+  .then(res => {
+    if (res !== undefined) {
+      setCategories(res);
+    }
+  })
 }
 
 useEffect(()=>{
   categoriesData();
 }, [])
 
+console.log(categories);
+
   return (
     <div>
-      visos kategorijos gautos is DB
+      {
+        categories !== undefined && categories.length !== 0 ? 
+        categories.map((cat, index)=>(
+          <div key={index}>
+            <h3>{cat.name}</h3>
+          </div>
+        )) : <h2>Cia galetu buti Jusu reklama</h2>
+      }
     </div>
   )
 }

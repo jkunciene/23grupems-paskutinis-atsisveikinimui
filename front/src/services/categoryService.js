@@ -7,7 +7,8 @@ const API_URL = '/api/category';
 const getAllCategories = async()=>{
     try {
         const response = await axios.get(API_URL);
-        return response;
+        if (response.data !== undefined) {
+        return response.data;}
     } catch (error) {
         console.log(error);
     }
