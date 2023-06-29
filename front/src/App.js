@@ -1,9 +1,10 @@
 import React from 'react'
+import Categories from './components/Categories';
 
 const App = () => {
   return (
     <div>
-      veikia
+      <Categories/>
     </div>
   )
 }

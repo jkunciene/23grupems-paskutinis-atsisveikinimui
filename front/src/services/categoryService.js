@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_URL = '/api/ad';
+const API_URL = '/api/category';
 
 //gauti visus visu skelbimus
 //home page
-const getAllAdsData = async()=>{
+const getAllCategories = async()=>{
     try {
         const response = await axios.get(API_URL);
         return response;
@@ -13,9 +13,9 @@ const getAllAdsData = async()=>{
     }
 }
 
-const adsService = {
-    getAllAdsData,
+const categoryService = {
+    getAllCategories,
 
 }
 
-export default adsService
+export default categoryService
